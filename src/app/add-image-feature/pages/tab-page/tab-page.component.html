@@ -1,0 +1,26 @@
+<section class="u-align-center u-clearfix u-grey-15 u-section-1" id="sec-102a">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <div class="u-expanded-width u-tabs u-tabs-1">
+        <ul class="u-palette-5-dark-2 u-tab-list u-unstyled u-tab-list-1" role="tablist">
+          <li class="u-tab-item" role="presentation">
+            <a [ngClass]="[tabsService.getActiveClass('online'), 'u-active-white', 'u-button-style', 'u-tab-link', 'u-tab-link-1']" id="link-tab-0da5" role="tab"  [attr.aria-selected]="tabsService.isCurrentTab('online')" (click)="tabsService.toggleOnlineTab()">Online</a>
+          </li>
+          <li class="u-tab-item" role="presentation">
+            <a [ngClass]="[tabsService.getActiveClass('local'),'u-active-white' ,'u-button-style', 'u-tab-link', 'u-tab-link-2']" id="link-tab-14b7"  role="tab" [attr.aria-selected]="tabsService.isCurrentTab('local')" (click)="tabsService.toggleLocalTab()">Local machine</a>
+          </li>
+          <li class="u-tab-item" role="presentation">
+            <a [ngClass]="[tabsService.getActiveClass('camera'),'u-active-white', 'u-button-style', 'u-tab-link', 'u-tab-link-3']" id="link-tab-2917" role="tab" (click)="tabsService.toggleCameraTab()" [attr.aria-selected]="tabsService.isCurrentTab('camera')">Camera</a>
+          </li>
+        </ul>
+        <div class="u-tab-content">
+          <div class="u-align-center u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-0da5" role="tabpanel" aria-labelledby="link-tab-0da5">
+            <div class="u-container-layout u-valign-middle u-container-layout-1">
+                <app-camera-take-pic *ngIf="tabsService.isCurrentTab('camera')"></app-camera-take-pic>
+                <app-local-image-add *ngIf="tabsService.isCurrentTab('local')"></app-local-image-add>
+                <app-online-image-add *ngIf="tabsService.isCurrentTab('online')"></app-online-image-add>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

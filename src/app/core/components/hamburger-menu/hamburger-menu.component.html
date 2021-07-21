@@ -1,0 +1,69 @@
+<div class="wrapper">
+ 
+    <!-- Sidebar -->
+    <nav [ngClass]="['sidebar', sideNavService.getHamburgerMenuVisibilityClass()]">
+ 
+        <!-- close sidebar menu -->
+        <div class="dismiss" (click)="sideNavService.toggleHamburgerMenu()">
+            <fa-icon [icon]="['far','window-close']"></fa-icon>
+        </div>
+ 
+        <div class="logo">
+            <h3><a href="index.html">Bootstrap 4 Template with Sidebar Menu</a></h3>
+        </div>
+ 
+        <ul class="list-unstyled menu-elements">
+            <li class="active">
+                <a class="scroll-link" href="#top-content"><i class="fas fa-home"></i> Dark / Light Mode</a>
+            </li>
+            <li>
+                <a class="scroll-link" (click)="sideNavService.togglePrivatePopUpVisible()"><i class="fas fa-cog"></i> Enter / Exit private mode</a>
+            </li>
+            <li>
+                <a class="scroll-link" href="#section-2"><i class="fas fa-user"></i> Edit Categories</a>
+            </li>
+            <li>
+                <a class="scroll-link" href="#section-5"><i class="fas fa-pencil-alt"></i> About Us</a>
+            </li>
+            <li>
+                <a class="scroll-link" href="#section-6"><i class="fas fa-envelope"></i> Exit Application</a>
+            </li>
+            
+        </ul>
+
+ 
+        <div class="dark-light-buttons">
+            <a class="btn btn-primary btn-customized-4 btn-customized-dark" href="#" role="button">Dark</a>
+            <a class="btn btn-primary btn-customized-4 btn-customized-light" href="#" role="button">Light</a>
+        </div>
+ 
+    </nav>
+    <!-- End sidebar -->
+ 
+    <!-- Dark overlay -->
+    <div [ngClass]="['overlay', sideNavService.getHamburgerMenuVisibilityClass()]"></div>
+ 
+    <!-- Content -->
+    <div class="content">
+ 
+        <!-- open sidebar menu -->
+        <a class="btn btn-primary btn-customized open-menu" (click)="sideNavService.toggleHamburgerMenu()">
+            <fa-icon [icon]="['fas', 'bars']"></fa-icon>
+        </a>
+ 
+        <!-- ... -->
+ 
+        <!-- here is the page's content (not shown here) -->
+ 
+        <!-- ... -->
+ 
+    </div>
+    <!-- End content -->
+ 
+</div>
+<!-- End wrapper -->
+
+<div id="myModal" class="modal" [style.display]="sideNavService.getPrivatePopUpVisible()">
+    <app-private-enter></app-private-enter>
+</div>
+

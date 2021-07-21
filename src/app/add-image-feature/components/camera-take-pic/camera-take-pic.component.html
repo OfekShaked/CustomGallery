@@ -1,0 +1,60 @@
+<section class="u-clearfix u-section-1" id="sec-517e">
+  <div class="u-clearfix u-sheet u-valign-top-xs u-sheet-1">
+    <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+      <div class="u-layout">
+        <div class="u-layout-row">
+          <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-1">
+            <div class="u-container-layout u-container-layout-1"></div>
+          </div>
+          <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-2">
+            <div class="u-container-layout u-valign-middle-sm u-valign-middle-xs u-container-layout-2">
+              <div class="u-align-center u-video u-video-contain u-video-1">
+                <!-- "position: absolute;top: 0;left: 0;width: 100%;height: 100%;" -->
+                <webcam [width]="400" [height]="200" [trigger]="cameraService.triggerObservable"
+                  (imageCapture)="cameraService.handleImage($event)"></webcam>
+              </div>
+            </div>
+          </div>
+          <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-3">
+            <div class="u-container-layout u-valign-top-xs u-container-layout-3">
+              <a (click)="cameraService.triggerSnapshot()"
+                class="u-align-center u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-2-light-1 u-radius-50 u-text-body-alt-color u-text-hover-grey-90 u-btn-1"><span
+                  class="u-icon u-icon-1"><svg class="u-svg-content" viewBox="0 0 420.8 420.8" x="0px" y="0px"
+                    style="width: 1em; height: 1em;">
+                    <g>
+                      <g>
+                        <g>
+                          <path
+                            d="M406.8,96.4c-8.4-8.8-20-14-33.2-14h-66.4v-0.8c0-10-4-19.6-10.8-26c-6.8-6.8-16-10.8-26-10.8h-120     c-10.4,0-19.6,4-26.4,10.8c-6.8,6.8-10.8,16-10.8,26v0.8h-66c-13.2,0-24.8,5.2-33.2,14c-8.4,8.4-14,20.4-14,33.2v199.2     C0,342,5.2,353.6,14,362c8.4,8.4,20.4,14,33.2,14h326.4c13.2,0,24.8-5.2,33.2-14c8.4-8.4,14-20.4,14-33.2V129.6     C420.8,116.4,415.6,104.8,406.8,96.4z M400,328.8h-0.4c0,7.2-2.8,13.6-7.6,18.4s-11.2,7.6-18.4,7.6H47.2     c-7.2,0-13.6-2.8-18.4-7.6c-4.8-4.8-7.6-11.2-7.6-18.4V129.6c0-7.2,2.8-13.6,7.6-18.4s11.2-7.6,18.4-7.6h77.2     c6,0,10.8-4.8,10.8-10.8V81.2c0-4.4,1.6-8.4,4.4-11.2s6.8-4.4,11.2-4.4h119.6c4.4,0,8.4,1.6,11.2,4.4c2.8,2.8,4.4,6.8,4.4,11.2     v11.6c0,6,4.8,10.8,10.8,10.8H374c7.2,0,13.6,2.8,18.4,7.6s7.6,11.2,7.6,18.4V328.8z">
+                          </path>
+                          <path
+                            d="M210.4,130.8c-27.2,0-52,11.2-69.6,28.8c-18,18-28.8,42.4-28.8,69.6s11.2,52,28.8,69.6c18,18,42.4,28.8,69.6,28.8     s52-11.2,69.6-28.8c18-18,28.8-42.4,28.8-69.6s-11.2-52-28.8-69.6C262.4,142,237.6,130.8,210.4,130.8z M264.8,284     c-14,13.6-33.2,22.4-54.4,22.4S170,297.6,156,284c-14-14-22.4-33.2-22.4-54.4c0-21.2,8.8-40.4,22.4-54.4     c14-14,33.2-22.4,54.4-22.4s40.4,8.8,54.4,22.4c14,14,22.4,33.2,22.4,54.4C287.6,250.8,278.8,270,264.8,284z">
+                          </path>
+                          <circle cx="352.8" cy="150" r="19.6"></circle>
+                        </g>
+                      </g>
+                    </g>
+                  </svg><img></span>Take Picture
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="u-expanded-width-xs u-form u-form-1">
+      <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom"
+        name="form" style="padding: 10px;">
+        <input type="hidden" id="siteId" name="siteId" value="1217604343">
+        <input type="hidden" id="pageId" name="pageId" value="123860642">
+        <div class="u-align-center u-form-group u-form-submit">
+          <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-palette-2-base u-btn-2">DONE</a>
+          <input type="submit" value="submit" class="u-form-control-hidden">
+        </div>
+        <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+        <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try
+          again. </div>
+        <input type="hidden" value="" name="recaptchaResponse">
+      </form>
+    </div>
+  </div>
+</section>

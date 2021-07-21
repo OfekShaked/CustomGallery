@@ -1,0 +1,26 @@
+<div class="container">  
+        <div [ngClass]="[gridViewService.getPostClass()]">       
+          <div class="menu" (click)="editPopService.toggleEditPopUpVisible()"><fa-icon class="iconInfo" [icon]="['fas', 'info']" ></fa-icon></div>
+          <div [ngClass]="[gridViewService.getPostImageClass()]"></div>
+          <div class="text-movie-cont">
+            <div class="mr-grid">
+              <div class="col1">
+                <h1 class="title">Interstellar</h1>
+              </div>
+            </div>
+            <div class="mr-grid">
+            <div class="mr-grid action-row">
+              <div class="col6 action-btn"><fa-icon [icon]="['far','star']"></fa-icon>
+              </div>
+              <div class="col6 action-btn"><fa-icon [icon]="['fas','map-marker-alt']"></fa-icon>
+              </div>
+              <div class="col6 action-btn"><fa-icon [icon]="['fas','unlock-alt']"></fa-icon>
+              </div>
+              <div class="col6"><select multiple></select>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+
+    <app-edit-image></app-edit-image>

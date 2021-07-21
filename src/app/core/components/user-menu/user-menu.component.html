@@ -1,0 +1,57 @@
+<div class="wrapper">
+ 
+    <!-- Sidebar -->
+    <nav [ngClass]="['sidebar', sideNavService.getUserMenuVisibilityClass()]">
+ 
+        <!-- close sidebar menu -->
+        <div class="dismiss" (click)="sideNavService.toggleUserMenu()">
+            <fa-icon [icon]="['far','window-close']"></fa-icon>
+        </div>
+ 
+        <div class="logo">
+            <h3><a href="index.html">Bootstrap 4 Template with Sidebar Menu</a></h3>
+        </div>
+ 
+        <ul class="list-unstyled menu-elements">
+            <li class="active">
+                <a class="scroll-link" (click)="gridViewService.changeGridViewType()"><i class="fas fa-home"></i> List / Table View</a>
+            </li>
+            <li>
+                <a class="scroll-link" href="#section-1"><i class="fas fa-cog"></i> Start Random Slideshow</a>
+            </li>
+            <li>
+                <a class="scroll-link" href="#section-2"><i class="fas fa-user"></i> Switch mode to import / observe images</a>
+            </li>
+            <li>
+                <a class="scroll-link" class="disabled"><i class="fas fa-pencil-alt"></i> Share Images</a>
+            </li>
+            <li>
+                <a  class="scroll-link" class="disabled"><i class="fas fa-envelope"></i> Sync With Cloud Storage</a>
+            </li>
+            
+        </ul>
+    </nav>
+    <!-- End sidebar -->
+ 
+    <!-- Dark overlay -->
+    <div [ngClass]="['overlay', sideNavService.getUserMenuVisibilityClass()]"></div>
+ 
+    <!-- Content -->
+    <div class="content">
+ 
+        <!-- open sidebar menu -->
+        <a class="btn btn-primary btn-customized open-menu" (click)="sideNavService.toggleUserMenu()">
+            <fa-icon [icon]="['fas', 'user']"></fa-icon>
+        </a>
+ 
+        <!-- ... -->
+ 
+        <!-- here is the page's content (not shown here) -->
+ 
+        <!-- ... -->
+ 
+    </div>
+    <!-- End content -->
+ 
+</div>
+<!-- End wrapper -->
