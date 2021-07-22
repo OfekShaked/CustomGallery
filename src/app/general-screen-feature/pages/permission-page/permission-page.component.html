@@ -3,29 +3,25 @@
       <div class="u-form u-form-1">
         <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
           <div class="u-form-checkbox u-form-group">
-            <input type="checkbox" placeholder="Enter your Name" id="name-8a2c" name="cameraAccess" class="u-block-1184-6 u-border-1 u-border-grey-30 u-input-rectangle u-white" required="required" value="">
+            <input type="checkbox" [checked]="isCameraAllowed" (change)="getCameraAccess()" (click)="canChangeCamera($event)" name="cameraAccess" class="u-block-1184-6 u-border-1 u-border-grey-30 u-input-rectangle u-white" >
             <label for="name-8a2c" class="u-label u-label-1">Allow camera access</label>
           </div>
           <div class="u-form-checkbox u-form-group">
-            <input type="checkbox" placeholder="Enter a valid email address" id="email-8a2c" name="locationAccess" class="u-block-1184-9 u-border-1 u-border-grey-30 u-input-rectangle u-white" required="required" value="">
+            <input type="checkbox" [checked]="isLocationAllowed" (change)="getLocationAccess()" (click)="canChangeLocation($event)" name="locationAccess" class="u-block-1184-9 u-border-1 u-border-grey-30 u-input-rectangle u-white" >
             <label for="email-8a2c" class="u-label u-label-2">Allow device location</label>
           </div>
           <div class="u-form-checkbox u-form-group">
-            <input placeholder="Enter your message" rows="4" cols="50" id="message-8a2c" name="privateAccess" class="u-block-1184-12 u-border-1 u-border-grey-30 u-input-rectangle u-white" required="required" type="checkbox">
+            <input [checked]="isPrivateAllowed" (change)="privateAccessChanged($event)" rows="4" cols="50" class="u-block-1184-12 u-border-1 u-border-grey-30 u-input-rectangle u-white" required="required" type="checkbox">
             <label for="message-8a2c" class="u-label u-label-3">Allow private mode</label>
           </div>
           <div class="u-form-group u-form-group-4">
-            <label for="email-b4f0" class="u-form-control-hidden u-label u-label-4"></label>
-            <input type="text" placeholder="Private Password" id="email-b4f0" name="password" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            <label  class="u-form-control-hidden u-label u-label-4"></label>
+            <input type="text" [(ngModel)]="password" (input)="clearPasswordBox($event)" placeholder="Private Password"  name="password" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
           </div>
           <div class="u-align-center u-form-group u-form-submit">
-            <a href="#" class="u-btn u-btn-submit u-button-style">Next<br>
+            <a routerLink="/library" class="u-btn u-btn-submit u-button-style">Next<br>
             </a>
-            <input type="submit" value="submit" class="u-form-control-hidden">
           </div>
-          <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-          <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-          <input type="hidden" value="" name="recaptchaResponse">
         </form>
       </div>
     </div>

@@ -5,7 +5,7 @@ import {PermissionPageComponent} from './pages/permission-page/permission-page.c
 import {LibraryCreationPageComponent} from './pages/library-creation-page/library-creation-page.component'
 
 const routes: Routes = [
-  {path : 'home', component : HomePageComponent},
+  {path : '', component : HomePageComponent},
   {path : 'permission', component : PermissionPageComponent},
   {path : 'library', component : LibraryCreationPageComponent},
 ];

@@ -8,8 +8,75 @@ import { Component, OnInit } from '@angular/core';
 export class PermissionPageComponent implements OnInit {
 
   constructor() { }
-
+  isCameraAllowed:boolean= false;
+  isLocationAllowed: boolean=false;
+  isPrivateAllowed:boolean=false;
+  password:string="";
   ngOnInit(): void {
+    this.getCameraAccess();
+    this.getLocationAccess();
   }
 
+  privateAccessChanged=(e)=>{
+    this.isPrivateAllowed=e.target.checked;
+    this.password="";
+  }
+
+  clearPasswordBox = (e) =>{
+    if(!this.isPrivateAllowed){
+    e.target.value="";
+    }
+    
+  }
+
+  canChangeCamera = (e)=>{   
+    if(!e.target.checked===this.isCameraAllowed){
+      e.preventDefault();
+    }
+  };
+
+  canChangeLocation = (e)=>{
+    if(!e.target.checked===this.isLocationAllowed){
+      e.preventDefault();
+    }
+  }
+
+  getCameraAccess = () => {    
+    try{
+    let allowedPromise = navigator.mediaDevices.getUserMedia(
+      {
+        video: true
+      }).catch(()=>{
+        this.isCameraAllowed=false;
+      });
+    if(allowedPromise){
+      this.isCameraAllowed=true;
+    }
+    }catch(err){
+      this.isCameraAllowed=false;
+    }
+  }
+  getLocationAccess = ()=> {
+    try{
+      navigator.permissions.query({
+        name: 'geolocation'
+    }).then((result)=> {
+        if (result.state == 'granted') {
+            this.isLocationAllowed=true;
+            return;
+        } else if (result.state == 'prompt') {
+          navigator.geolocation.getCurrentPosition((location)=>{this.isLocationAllowed=true; return;
+          },(err)=>{
+            this.isLocationAllowed=false; return;
+          });
+          this.isLocationAllowed=false;return;
+        } else if (result.state == 'denied') {
+          this.isLocationAllowed=false;
+          return;
+        }
+      });
+    }catch(err){
+      this.isLocationAllowed=false;
+    }
+  }
 }

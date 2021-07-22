@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,7 @@ import { FooterComponent } from './core/components/footer/footer.component';
 import { HamburgerMenuComponent } from './core/components/hamburger-menu/hamburger-menu.component';
 import { UserMenuComponent } from './core/components/user-menu/user-menu.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { SharedModule } from './shared/shared.module';
+import { PopupsFeatureModule } from './popups-feature/popups-feature.module';
 import {fas} from '@fortawesome/free-solid-svg-icons'
 import {far} from '@fortawesome/free-regular-svg-icons';
 
@@ -25,11 +26,12 @@ import {far} from '@fortawesome/free-regular-svg-icons';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     GeneralScreenFeatureModule,
     AddImageFeatureModule,
     MainApplicationInterfaceFeatureModule,
-    SharedModule,
+    PopupsFeatureModule,
     FontAwesomeModule
   ],
   providers: [],

@@ -16,9 +16,10 @@
 	 display: flex;
 	 max-width: 720px;
 	 width: 100%;
+	 height: calc(100% - 70px);
 	 border-radius: 10px;
 	 overflow: hidden;
-	 position: absolute;
+	 position: relative;
 	 opacity: 0;
 	 pointer-events: none;
 	 transition-duration: 0.3s;
@@ -125,6 +126,10 @@
  .input-button:hover {
 	 background: #55311c;
 }
+select{
+	width:100%;
+	height:30px;
+}
  .input-label {
 	 font-size: 11px;
 	 text-transform: uppercase;
@@ -176,9 +181,6 @@
  @media (max-width: 750px) {
 	 .modal-container {
 		 width: 90%;
-	}
-	 .modal-right {
-		 display: none;
 	}
 }
  
