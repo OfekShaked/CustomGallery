@@ -30,4 +30,7 @@ export class TabsServiceService {
   toggleCameraTab():void{
     this.currentTab='camera';
   }
+  toggleApproveTab():void{
+    this.currentTab='approve';
+  }
 }

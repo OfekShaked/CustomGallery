@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CameraService } from '../../services/camera-service/camera.service';
+import { TabsServiceService } from '../../services/tabs-service/tabs-service.service';
 
 @Component({
   selector: 'app-camera-approve-pic',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CameraApprovePicComponent implements OnInit {
 
-  constructor() { }
+  constructor(public cameraService:CameraService, public tabsService:TabsServiceService) { }
 
   ngOnInit(): void {
   }

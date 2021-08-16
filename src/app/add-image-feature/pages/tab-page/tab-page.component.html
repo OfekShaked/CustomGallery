@@ -16,6 +16,7 @@
           <div class="u-align-center u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-0da5" role="tabpanel" aria-labelledby="link-tab-0da5">
             <div class="u-container-layout u-valign-middle u-container-layout-1">
                 <app-camera-take-pic *ngIf="tabsService.isCurrentTab('camera')"></app-camera-take-pic>
+                <app-camera-approve-pic *ngIf="tabsService.isCurrentTab('approve')"></app-camera-approve-pic>
                 <app-local-image-add *ngIf="tabsService.isCurrentTab('local')"></app-local-image-add>
                 <app-online-image-add *ngIf="tabsService.isCurrentTab('online')"></app-online-image-add>
             </div>
