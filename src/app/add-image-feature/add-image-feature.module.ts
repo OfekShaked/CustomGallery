@@ -7,6 +7,8 @@ import { CameraApprovePicComponent } from './components/camera-approve-pic/camer
 import { LocalImageAddComponent } from './components/local-image-add/local-image-add.component';
 import { OnlineImageAddComponent } from './components/online-image-add/online-image-add.component';
 import { WebcamModule } from 'ngx-webcam';
+import {FormsModule } from '@angular/forms'
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { WebcamModule } from 'ngx-webcam';
   imports: [
     CommonModule,
     AddImageRoutingModule,
-    WebcamModule
+    WebcamModule,
+    FormsModule
   ]
 })
 export class AddImageFeatureModule { }

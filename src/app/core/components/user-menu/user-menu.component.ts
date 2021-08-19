@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GridViewService } from '../../services/grid-view-service/grid-view.service';
 import { SideNavsService } from '../../services/side-nav-service/side-navs.service';
+import { SlidePopService } from '../../services/slide-pop-service/slide-pop.service';
 
 @Component({
   selector: 'app-user-menu',
@@ -9,7 +10,7 @@ import { SideNavsService } from '../../services/side-nav-service/side-navs.servi
 })
 export class UserMenuComponent implements OnInit {
 
-  constructor(public sideNavService:SideNavsService, public gridViewService:GridViewService) { }
+  constructor(public sideNavService:SideNavsService, public gridViewService:GridViewService,public slidePopService:SlidePopService) { }
 
   ngOnInit(): void {
   }

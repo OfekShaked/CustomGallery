@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PrivateModeService } from 'src/app/core/services/private-mode-service/private-mode.service';
 
 @Component({
   selector: 'app-permission-page',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PermissionPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,private http: HttpClient,private privateModeService:PrivateModeService) { }
   isCameraAllowed:boolean= false;
   isLocationAllowed: boolean=false;
   isPrivateAllowed:boolean=false;
@@ -78,5 +81,9 @@ export class PermissionPageComponent implements OnInit {
     }catch(err){
       this.isLocationAllowed=false;
     }
+  }
+  async nextPage(){
+    this.privateModeService.setPrivateModePassword(this.password);
+    this.router.navigateByUrl('/library');
   }
 }

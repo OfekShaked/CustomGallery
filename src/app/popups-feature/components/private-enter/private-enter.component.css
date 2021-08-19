@@ -1,7 +1,10 @@
 body {
     background-color: #ffb7b7;
   }
-  
+  .error{
+    color:red;
+    font-weight: bold;
+  }
   .parent-wrapper {
     position: relative;
     width: 400px;

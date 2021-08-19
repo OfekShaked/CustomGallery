@@ -1,4 +1,6 @@
-class LocationModel{
+interface LocationModel{
     lng:number;
     lat:number;
 }
+
+export default LocationModel;

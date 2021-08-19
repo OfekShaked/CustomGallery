@@ -1,19 +1,19 @@
 <section class="u-clearfix u-section-1" id="sec-11a2">
     <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-form u-form-1">
-        <form action="#" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px" source="custom">
+        <form *ngIf="this.isAbleToUpload" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" source="custom">
           <div class="u-form-group">
-            <label for="email-14cf" class="u-form-control-hidden u-label">Name</label>
-            <input type="text" placeholder="Image URL" id="email-14cf" name="url" class="u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-grey-25 u-input u-input-rectangle" required="required">
+            <label class="u-form-control-hidden u-label">imageUrl</label>
+            <input [(ngModel)]="imgUrl" type="text" placeholder="Image URL" name="url" class="u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-grey-25 u-input u-input-rectangle" required="required">
           </div>
           <div class="u-form-group u-form-submit">
-            <a href="#" class="u-btn u-btn-submit u-button-style">Add Image</a>
+            <a (click)="addImage()" class="u-btn u-btn-submit u-button-style">Add Image</a>
             <input type="submit" value="submit" class="u-form-control-hidden">
           </div>
-          <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
-          <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
-          <input type="hidden" value="" name="recaptchaResponse">
         </form>
+        <div class="u-form-group middle">
+          {{errorMessage}}
+      </div>
       </div>
     </div>
   </section>
@@ -22,19 +22,19 @@
     <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1"><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
       <div class="u-blog u-expanded-width-md u-blog-1">
         <div class="u-repeater u-repeater-1"><!--blog_post-->
-          <div class="u-blog-post u-container-style u-image u-repeater-item u-shape-rectangle u-image-1" data-image-width="2000" data-image-height="1333">
+          <div class="u-blog-post u-container-style u-image u-repeater-item u-shape-rectangle u-image-1" [ngStyle]="{'background-image':img1}" data-image-width="2000" data-image-height="1333">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-1"><!--blog_post_readmore-->
-              <a href="blog/post.html" class="u-blog-control u-btn u-btn-rectangle u-button-style u-palette-3-base u-btn-1"><!--blog_post_readmore_content-->Read More<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
+              <a (click)="removeImage(1)" class="u-blog-control u-btn u-btn-rectangle u-button-style u-palette-3-base u-btn-1">Delete image</a>
             </div>
           </div><!--/blog_post--><!--blog_post-->
-          <div class="u-blog-post u-container-style u-image u-repeater-item u-shape-rectangle u-image-2" data-image-width="2000" data-image-height="1333">
+          <div class="u-blog-post u-container-style u-image u-repeater-item u-shape-rectangle u-image-2" [ngStyle]="{'background-image':img2}" data-image-width="2000" data-image-height="1333">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-2"><!--blog_post_readmore-->
-              <a href="blog/post-1.html" class="u-blog-control u-btn u-btn-rectangle u-button-style u-palette-3-base u-btn-2"><!--blog_post_readmore_content-->Read More<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
+              <a (click)="removeImage(2)" class="u-blog-control u-btn u-btn-rectangle u-button-style u-palette-3-base u-btn-2">Delete image</a>
             </div>
           </div><!--/blog_post--><!--blog_post-->
-          <div class="u-blog-post u-container-style u-image u-repeater-item u-shape-rectangle u-image-3" data-image-width="2000" data-image-height="1333">
+          <div class="u-blog-post u-container-style u-image u-repeater-item u-shape-rectangle u-image-3" [ngStyle]="{'background-image':img3}" data-image-width="2000" data-image-height="1333">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-3"><!--blog_post_readmore-->
-              <a href="blog/post-2.html" class="u-blog-control u-btn u-btn-rectangle u-button-style u-palette-3-base u-btn-3"><!--blog_post_readmore_content-->Read More<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
+              <a (click)="removeImage(3)" class="u-blog-control u-btn u-btn-rectangle u-button-style u-palette-3-base u-btn-3">Delete image</a>
             </div>
           </div><!--/blog_post-->
         </div>
@@ -42,12 +42,9 @@
       <div class="u-form u-form-1">
         <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
           <div class="u-align-center u-form-group u-form-submit">
-            <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-palette-2-base u-btn-4">DONE</a>
+            <a (click)="uploadImages()" class="u-border-none u-btn u-btn-submit u-button-style u-palette-2-base u-btn-4">DONE</a>
             <input type="submit" value="submit" class="u-form-control-hidden">
           </div>
-          <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-          <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-          <input type="hidden" value="" name="recaptchaResponse">
         </form>
       </div>
     </div>

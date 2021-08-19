@@ -18,9 +18,6 @@
                                         <a href="#" class="u-btn u-btn-submit u-button-style">Search by Name</a>
                                         <input type="submit" value="submit" class="u-form-control-hidden">
                                     </div>
-                                    <div class="u-form-send-message u-form-send-success">#FormSendSuccess</div>
-                                    <div class="u-form-send-error u-form-send-message">#FormSendError</div>
-                                    <input type="hidden" value="" name="recaptchaResponse">
                                 </form>
                             </div>
                             <div class="u-form u-form-2">
@@ -36,21 +33,14 @@
                                         <a href="#" class="u-btn u-btn-submit u-button-style">Search by Category</a>
                                         <input type="submit" value="submit" class="u-form-control-hidden">
                                     </div>
-                                    <div class="u-form-send-message u-form-send-success">#FormSendSuccess</div>
-                                    <div class="u-form-send-error u-form-send-message">#FormSendError</div>
-                                    <input type="hidden" value="" name="recaptchaResponse">
                                 </form>
                             </div>
                         </div>
                     </div>
                     <div [ngClass]="[gridViewService.getGridViewType()]">
-                        <app-blog-post></app-blog-post>
-                        <app-blog-post></app-blog-post>
-                        <app-blog-post></app-blog-post>
-                        <app-blog-post></app-blog-post>
-                        <app-blog-post></app-blog-post>
-                        <app-blog-post></app-blog-post>
-                        <app-blog-post></app-blog-post>
+                        <div *ngFor="let image of imagesToShow">
+                            <app-blog-post [image]="image"></app-blog-post>
+                        </div>
                     </div>
                 </div>
             </div>

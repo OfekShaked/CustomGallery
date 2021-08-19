@@ -8,6 +8,14 @@
     margin: 27px auto 26px;
   }
   
+.middle{
+  text-align: center;
+  margin-right: 15%;
+  color:red;
+  font-size: medium;
+  font-weight: 800;
+ }
+
   @media (max-width: 1199px) {
     .u-section-1 .u-sheet-1 {
       min-height: 113px;
@@ -70,9 +78,6 @@
     min-height: 417px;
   }
   
-  .u-section-2 .u-image-1 {
-    background-image: url("../../../../assets/emptyframe.png");
-  }
   
   .u-section-2 .u-container-layout-1 {
     padding: 30px;
@@ -83,10 +88,6 @@
     text-transform: uppercase;
     background-image: none;
     margin: 0 auto;
-  }
-  
-  .u-section-2 .u-image-2 {
-    background-image: url("../../../../assets/emptyframe.png");
   }
   
   .u-section-2 .u-container-layout-2 {
@@ -100,9 +101,6 @@
     margin: 0 auto;
   }
   
-  .u-section-2 .u-image-3 {
-    background-image: url("../../../../assets/emptyframe.png");
-  }
   
   .u-section-2 .u-container-layout-3 {
     padding: 30px;

@@ -1,22 +1,25 @@
-<div class="container">  
+<div class="container" id="image.imageId">  
         <div [ngClass]="[gridViewService.getPostClass()]">       
-          <div class="menu" (click)="editPopService.toggleEditPopUpVisible()"><fa-icon class="iconInfo" [icon]="['fas', 'info']" ></fa-icon></div>
-          <div [ngClass]="[gridViewService.getPostImageClass()]"></div>
+          <div class="menu" (click)="editPopService.toggleEditPopUpVisible(image)"><fa-icon class="iconInfo" [icon]="['fas', 'info']" ></fa-icon></div>
+          <div [ngClass]="[gridViewService.getPostImageClass()]" [style.background-image]="'url(data:image/png;base64,'+image.base64String+')'"></div>
           <div class="text-movie-cont">
             <div class="mr-grid">
               <div class="col1">
-                <h1 class="title">Interstellar</h1>
+                <h1 class="title">{{image.title}}</h1>
               </div>
             </div>
             <div class="mr-grid">
             <div class="mr-grid action-row">
-              <div class="col6 action-btn"><fa-icon [icon]="['far','star']"></fa-icon>
+              <div class="col6 action-btn" (click)="toggleFavourite()"><fa-icon *ngIf="!image.isFavourite" [icon]="['far','star']"></fa-icon><fa-icon *ngIf="image.isFavourite" [icon]="['fas','star']"></fa-icon>
               </div>
               <div class="col6 action-btn"><fa-icon [icon]="['fas','map-marker-alt']"></fa-icon>
               </div>
-              <div class="col6 action-btn"><fa-icon [icon]="['fas','unlock-alt']"></fa-icon>
+              <div class="col6 action-btn" (click)="togglePrivate()" *ngIf="privateModeService.isPrivateModeEnabled"><fa-icon *ngIf="!image.isPrivate" [icon]="['fas','unlock-alt']"></fa-icon><fa-icon *ngIf="image.isPrivate" [icon]="['fas','lock']"></fa-icon>
               </div>
-              <div class="col6"><select multiple></select>
+              <div class="col6">
+                <select multiple size="3">
+                <option *ngFor="let category of image.categories" value="category">{{category}}</option>
+              </select>
               </div>
             </div>
           </div>

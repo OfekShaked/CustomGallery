@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GeneralScreenFeatureModule } from './general-screen-feature/general-screen-feature.module';
@@ -26,13 +24,12 @@ import {far} from '@fortawesome/free-regular-svg-icons';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     GeneralScreenFeatureModule,
     AddImageFeatureModule,
     MainApplicationInterfaceFeatureModule,
     PopupsFeatureModule,
-    FontAwesomeModule
+    FontAwesomeModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,7 +19,7 @@
             <input type="text" [(ngModel)]="password" (input)="clearPasswordBox($event)" placeholder="Private Password"  name="password" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
           </div>
           <div class="u-align-center u-form-group u-form-submit">
-            <a routerLink="/library" class="u-btn u-btn-submit u-button-style">Next<br>
+            <a (click)="nextPage()" class="u-btn u-btn-submit u-button-style">Next<br>
             </a>
           </div>
         </form>

@@ -1,0 +1,8 @@
+<div [ngClass]="['modal',slidePopService.getPopUpClass()]">
+    <div><fa-icon (click)="slidePopService.triggerSlideShow()" [icon]="['fas','window-close']" size="3x"></fa-icon></div>
+    <div class="modal-container">
+        <ul class="slideshow">
+            <li *ngFor="let image of getUnPrivateImages(); index as i" ><span [ngStyle]="getSpanImageStyle(image,i)"></span></li>
+        </ul>
+    </div>
+</div>

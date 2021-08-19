@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="CardInner">
+        <label>Add a new category</label>
+        Add a new category
+        <div class="container">
+          <div class="Icon" (click)="addCategory()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
+          </div>
+          <div class="InputContainer">
+            <input [(ngModel)]="categoryName" placeholder="It just can't be empty..."/>
+          </div>
+        </div>
+       </div>
+    <ngx-datatable class="material" [rows]="rows"
+        [headerHeight]="50" [footerHeight]="50" rowHeight="auto" [limit]="10" [columns]="[{name:'Category'}]">
+    </ngx-datatable>
+</div>

@@ -1,9 +1,12 @@
-class ImageModel{
+import LocationModel from "./location-model";
+
+interface ImageModel{
     imageId:number;
     title:string;
     categories:string[];
     isFavourite:boolean;
     isPrivate:boolean;
     location:LocationModel;
-    imageB64:string;
+    base64String:string;
 }
+export default ImageModel;

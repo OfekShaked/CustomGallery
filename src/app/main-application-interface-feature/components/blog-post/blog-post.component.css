@@ -87,10 +87,11 @@
  .action-btn {
 	 text-align: center;
 }
- .action-btn i {
-	 color: #fe4141;
-	 font-size: 28px;
-	 text-align: right;
+.action-btn:hover{
+    cursor:pointer;
+}
+.action-btn fa-icon:hover{
+    color: blue;
 }
  .action-row {
 	 margin-top: 5px;

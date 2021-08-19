@@ -1,8 +1,14 @@
 <div class="parent-wrapper">
     <span class="close-btn"> <fa-icon [icon]="['fas', 'window-close']" (click)="sideNavService.togglePrivatePopUpVisible()"></fa-icon></span>
     <div class="subscribe-wrapper">
-      <h4>ENTER YOUR PASSWORD</h4>
-      <input type="password" name="password" class="subscribe-input" placeholder="password">
-      <div class="submit-btn">SUBMIT</div>
+      <div [ngSwitch]="privateModeService.isCurrentlyInPrivateMode">
+        <div *ngSwitchCase="true"><h4>LEAVE PRIVATE MODE</h4></div>
+        <div *ngSwitchCase="false">
+          <h4 *ngIf="privateModeService.isPrivateModeEnabled">ENTER YOUR PASSWORD</h4> <h4 *ngIf="!privateModeService.isPrivateModeEnabled">SET UP YOUR PASSWORD</h4>
+          <input [(ngModel)]="password" type="password" name="password" class="subscribe-input" placeholder="password">
+        </div>
+      </div>
+      <div *ngIf="!privateModeService.isCurrentlyInPrivateMode" (click)="onSubmit()" class="submit-btn">SUBMIT</div><div *ngIf="privateModeService.isCurrentlyInPrivateMode" (click)="onSubmit()" class="submit-btn">LEAVE</div>
+      <h5 class="error">{{errorMessage}}</h5>
     </div>
   </div>

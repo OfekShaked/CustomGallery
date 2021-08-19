@@ -8,16 +8,12 @@
             <fa-icon [icon]="['far','window-close']"></fa-icon>
         </div>
  
-        <div class="logo">
-            <h3><a href="index.html">Bootstrap 4 Template with Sidebar Menu</a></h3>
-        </div>
- 
         <ul class="list-unstyled menu-elements">
             <li class="active">
                 <a class="scroll-link" (click)="gridViewService.changeGridViewType()"><i class="fas fa-home"></i> List / Table View</a>
             </li>
             <li>
-                <a class="scroll-link" href="#section-1"><i class="fas fa-cog"></i> Start Random Slideshow</a>
+                <a class="scroll-link" (click)="slidePopService.triggerSlideShow()"><i class="fas fa-cog"></i> Start Random Slideshow</a>
             </li>
             <li>
                 <a class="scroll-link" href="#section-2"><i class="fas fa-user"></i> Switch mode to import / observe images</a>
@@ -35,7 +31,7 @@
  
     <!-- Dark overlay -->
     <div [ngClass]="['overlay', sideNavService.getUserMenuVisibilityClass()]"></div>
- 
+    <app-slide-show></app-slide-show>
     <!-- Content -->
     <div class="content">
  
