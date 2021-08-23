@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import {BlogPostComponent} from './components/blog-post/blog-post.component'
+import { CanEnterLibraryGuard } from '../core/guards/can-enter-library-guard/can-enter-library.guard';
 import {GalleryPageComponent} from './pages/gallery-page/gallery-page.component'
 
 const routes: Routes = [
-  {path : 'blogpost', component : BlogPostComponent},
-  {path : 'gallery', component : GalleryPageComponent},
+  {path : 'gallery', component : GalleryPageComponent,canActivate:[CanEnterLibraryGuard]},
 ];
   
 @NgModule({

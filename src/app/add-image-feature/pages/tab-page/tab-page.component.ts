@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { NightModeService } from 'src/app/core/services/night-mode-service/night-mode.service';
 
 import { TabsServiceService } from '../../services/tabs-service/tabs-service.service';
 
@@ -11,7 +12,7 @@ import { TabsServiceService } from '../../services/tabs-service/tabs-service.ser
 })
 export class TabPageComponent implements OnInit {
 
-  constructor(private router:Router, public tabsService:TabsServiceService) { }
+  constructor( public tabsService:TabsServiceService, public nightModeService:NightModeService) { }
 
   ngOnInit(): void {
   }

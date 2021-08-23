@@ -209,14 +209,21 @@ a.btn-customized-4 {
 }
  
 a.btn-customized-4.btn-customized-dark {
-    background: #222;
+    background:black;
 }
  
 a.btn-customized-4.btn-customized-light {
     background: #fff;
 }
+a.btn-customized-4:hover{
+    outline: 0;
+    background: #555;
+    border: 0;
+    color: #fff;
+    box-shadow: none;
+}
  
-a.btn-customized-4.btn-customized-dark:hover, 
+/* a.btn-customized-4.btn-customized-dark:hover, 
 a.btn-customized-4.btn-customized-dark:active, 
 a.btn-customized-4.btn-customized-dark:focus, 
 a.btn-customized-4.btn-customized-dark:active:focus, 
@@ -242,7 +249,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
     border: 0;
     color: #fff;
     box-shadow: none;
-}
+} */
 
 .modal {
     position: fixed; /* Stay in place */

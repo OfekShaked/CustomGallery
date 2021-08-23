@@ -1,7 +1,14 @@
+.u-section-1{
+  height:100%;
+}
+
 .u-section-1 .u-sheet-1 {
     min-height: 500px;
   }
-  
+ .error{
+   color:red;
+   font-weight: bold;
+ } 
   .u-section-1 .u-form-1 {
     height: 313px;
     width: 570px;

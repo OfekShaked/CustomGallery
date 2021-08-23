@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LibraryService } from '../library-service/library.service';
 
 @Injectable({
   providedIn: 'root'
@@ -6,9 +7,10 @@ import { Injectable } from '@angular/core';
 export class SideNavsService {
   hamburgerMenuVisibility: boolean = false;
   userMenuVisibility: boolean = false;
-  privatePopUpVisible:string='none';
-  editPopUpVisible:string='none';
-  constructor() { }
+  privatePopUpVisible: string = 'none';
+  editPopUpVisible: string = 'none';
+  isInGallery: boolean = false;
+  constructor(private libraryService: LibraryService) { }
 
   toggleHamburgerMenu(): void {
     this.hamburgerMenuVisibility = !this.hamburgerMenuVisibility;
@@ -25,28 +27,34 @@ export class SideNavsService {
     return this.userMenuVisibility ? "active" : "";
   }
 
-  getPrivatePopUpVisible():string{
+  getPrivatePopUpVisible(): string {
     return this.privatePopUpVisible;
   }
 
-  togglePrivatePopUpVisible(): void{
-    if(this.privatePopUpVisible==='block'){
-      this.privatePopUpVisible='none';
-    }else{
-      this.privatePopUpVisible='block';
-      this.toggleHamburgerMenu()
+  togglePrivatePopUpVisible(): void {
+    if (this.libraryService.isLibraryCreated) {
+      if (this.privatePopUpVisible === 'block') {
+        this.privatePopUpVisible = 'none';
+      } else {
+        this.privatePopUpVisible = 'block';
+        this.toggleHamburgerMenu()
+      }
     }
   }
-  getEditPopUpVisible():string{
+  getEditPopUpVisible(): string {
     return this.editPopUpVisible;
   }
 
-  toggleEditPopUpVisible(): void{
-    if(this.editPopUpVisible==='block'){
-      this.editPopUpVisible='none';
-    }else{
-      this.editPopUpVisible='block';
+  toggleEditPopUpVisible(): void {
+    if (this.editPopUpVisible === 'block') {
+      this.editPopUpVisible = 'none';
+    } else {
+      this.editPopUpVisible = 'block';
     }
+  }
+
+  toggleIsGallery() {
+    this.isInGallery = !this.isInGallery;
   }
 
 

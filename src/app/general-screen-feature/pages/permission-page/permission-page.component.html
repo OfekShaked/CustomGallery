@@ -1,4 +1,4 @@
-<section class="u-clearfix u-section-1" id="sec-7768">
+<section class="u-clearfix u-section-1" [class.u-grey-75]="nightModeService.isNightModeEnabled" [class.u-white-75]="!nightModeService.isNightModeEnabled" >
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
       <div class="u-form u-form-1">
         <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
@@ -11,12 +11,19 @@
             <label for="email-8a2c" class="u-label u-label-2">Allow device location</label>
           </div>
           <div class="u-form-checkbox u-form-group">
-            <input [checked]="isPrivateAllowed" (change)="privateAccessChanged($event)" rows="4" cols="50" class="u-block-1184-12 u-border-1 u-border-grey-30 u-input-rectangle u-white" required="required" type="checkbox">
+            <input [checked]="isPrivateAllowed" (change)="privateAccessChanged($event)"  [disabled]="isPrivateCheckboxDisabled" rows="4" cols="50" class="u-block-1184-12 u-border-1 u-border-grey-30 u-input-rectangle u-white" required="required" type="checkbox">
             <label for="message-8a2c" class="u-label u-label-3">Allow private mode</label>
           </div>
           <div class="u-form-group u-form-group-4">
             <label  class="u-form-control-hidden u-label u-label-4"></label>
-            <input type="text" [(ngModel)]="password" (input)="clearPasswordBox($event)" placeholder="Private Password"  name="password" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            <input type="text" [(ngModel)]="password" (input)="clearPasswordBox($event)" minlength="4" placeholder="New Password"  name="password" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+          </div>
+          <div class="u-form-group u-form-group-4" *ngIf="privateModeService.isPrivateModeEnabled">
+            <label  class="u-form-control-hidden u-label u-label-4"></label>
+            <input type="text" [(ngModel)]="passwordOld" (input)="clearPasswordBox($event)" minlength="4" placeholder="Old Password"  name="password" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            <label class="u-label u-label-3">Leave one of the password boxes empty to keep the old password</label>
+            <label class="u-label u-label-3 error">{{passwordErrorMessage}}</label>
+
           </div>
           <div class="u-align-center u-form-group u-form-submit">
             <a (click)="nextPage()" class="u-btn u-btn-submit u-button-style">Next<br>

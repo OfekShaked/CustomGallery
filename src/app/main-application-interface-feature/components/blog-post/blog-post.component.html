@@ -1,5 +1,5 @@
-<div class="container" id="image.imageId">  
-        <div [ngClass]="[gridViewService.getPostClass()]">       
+<div class="container" id="image.imageId" [class.u-grey-75]="nightModeService.isNightModeEnabled" [class.u-white-75]="!nightModeService.isNightModeEnabled">  
+        <div [ngClass]="[gridViewService.getPostClass()]" [class.dark]="nightModeService.isNightModeEnabled">       
           <div class="menu" (click)="editPopService.toggleEditPopUpVisible(image)"><fa-icon class="iconInfo" [icon]="['fas', 'info']" ></fa-icon></div>
           <div [ngClass]="[gridViewService.getPostImageClass()]" [style.background-image]="'url(data:image/png;base64,'+image.base64String+')'"></div>
           <div class="text-movie-cont">
@@ -18,7 +18,7 @@
               </div>
               <div class="col6">
                 <select multiple size="3">
-                <option *ngFor="let category of image.categories" value="category">{{category}}</option>
+                <option [class.u-grey-75]="nightModeService.isNightModeEnabled" [class.u-white-75]="!nightModeService.isNightModeEnabled" *ngFor="let category of image.categories" value="category">{{category}}</option>
               </select>
               </div>
             </div>

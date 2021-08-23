@@ -7,22 +7,19 @@
         <div class="dismiss" (click)="sideNavService.toggleUserMenu()">
             <fa-icon [icon]="['far','window-close']"></fa-icon>
         </div>
- 
+        <div class="logo">
+            <h3>User Menu</h3>
+        </div>
         <ul class="list-unstyled menu-elements">
-            <li class="active">
-                <a class="scroll-link" (click)="gridViewService.changeGridViewType()"><i class="fas fa-home"></i> List / Table View</a>
+            <li>
+                <a class="scroll-link" (click)="gridViewService.changeGridViewType()"> List / Table View</a>
             </li>
             <li>
-                <a class="scroll-link" (click)="slidePopService.triggerSlideShow()"><i class="fas fa-cog"></i> Start Random Slideshow</a>
+                <a class="scroll-link" (click)="slidePopService.triggerSlideShow()"> Start Random Slideshow</a>
             </li>
             <li>
-                <a class="scroll-link" href="#section-2"><i class="fas fa-user"></i> Switch mode to import / observe images</a>
-            </li>
-            <li>
-                <a class="scroll-link" class="disabled"><i class="fas fa-pencil-alt"></i> Share Images</a>
-            </li>
-            <li>
-                <a  class="scroll-link" class="disabled"><i class="fas fa-envelope"></i> Sync With Cloud Storage</a>
+                <a *ngIf="sideNavService.isInGallery" class="scroll-link" routerLink="/addimage" (click)="sideNavService.toggleIsGallery()"> Import images</a>
+                <a *ngIf="!sideNavService.isInGallery" class="scroll-link" routerLink="/gallery" (click)="sideNavService.toggleIsGallery()"> Gallery</a>
             </li>
             
         </ul>

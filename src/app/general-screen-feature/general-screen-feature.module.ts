@@ -7,7 +7,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import {GeneralScreenRoutingModule} from './general-screen-routing.module';
 import { PermissionPageComponent } from './pages/permission-page/permission-page.component';
 import { LibraryCreationPageComponent } from './pages/library-creation-page/library-creation-page.component';
-import { AddCategoriesPageComponent } from './pages/add-categories-page/add-categories-page/add-categories-page.component'
+import { AddCategoriesPageComponent } from './pages/add-categories-page/add-categories-page/add-categories-page.component';
+import { AboutUsComponent } from './pages/about-us/about-us/about-us.component'
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AddCategoriesPageComponent } from './pages/add-categories-page/add-cate
     HomePageComponent,
     PermissionPageComponent,
     LibraryCreationPageComponent,
-    AddCategoriesPageComponent
+    AddCategoriesPageComponent,
+    AboutUsComponent
   ],
   imports: [
     CommonModule,

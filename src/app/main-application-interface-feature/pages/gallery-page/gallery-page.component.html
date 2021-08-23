@@ -1,4 +1,4 @@
-<section class="u-clearfix u-section-1" id="sec-e24f">
+<section class="u-clearfix u-section-1" [class.u-grey-75]="nightModeService.isNightModeEnabled" [class.u-white-75]="!nightModeService.isNightModeEnabled">
     <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
             <div class="u-layout">
@@ -6,17 +6,26 @@
                     <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
                         <div class="u-container-layout u-container-layout-1">
                             <div class="u-form u-form-1">
-                                <form action="#" method="POST"
-                                    class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form"
-                                    style="padding: 15px;" source="custom">
+                                <form class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form">
                                     <div class="u-form-group u-form-name">
-                                        <label for="name-ef64" class="u-form-control-hidden u-label">Name</label>
-                                        <input type="text" placeholder="Name" id="name-ef64" name="name"
-                                            class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
-                                    </div>
-                                    <div class="u-form-group u-form-submit">
-                                        <a href="#" class="u-btn u-btn-submit u-button-style">Search by Name</a>
-                                        <input type="submit" value="submit" class="u-form-control-hidden">
+                                        <label for="name-ef64" class="u-form-control-hidden u-label">Title</label>
+                                        <div class="u-border-1 u-border-grey-30 u-input u-input-rectangle">
+                                            <ng-autocomplete #titleSearch [data]="imagesToShow" [searchKeyword]="titleKeyword" placeholder="Search by title"
+                                                (selected)='onSelectedTitleSearch($event)'
+                                                (inputChanged)='onChangeTitleSearch($event)'
+                                                [itemTemplate]="titleTemplate"
+                                                [notFoundTemplate]="notFoundTitleTemplate"
+                                                (inputCleared)="onClearTitleSearch()">
+                                            </ng-autocomplete>
+
+                                            <ng-template #titleTemplate let-item>
+                                                <a [innerHTML]="item.title"></a>
+                                            </ng-template>
+
+                                            <ng-template #notFoundTitleTemplate let-notFound>
+                                                <div [innerHTML]="notFound"></div>
+                                            </ng-template>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -25,20 +34,37 @@
                                     class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form"
                                     style="padding: 15px;" source="custom">
                                     <div class="u-form-group u-form-name">
-                                        <label for="name-ef64" class="u-form-control-hidden u-label">Name</label>
-                                        <input type="text" placeholder="Category" id="name-ef64" name="category"
-                                            class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
-                                    </div>
-                                    <div class="u-form-group u-form-submit">
-                                        <a href="#" class="u-btn u-btn-submit u-button-style">Search by Category</a>
-                                        <input type="submit" value="submit" class="u-form-control-hidden">
+                                        <div class="u-border-1 u-border-grey-30 u-input u-input-rectangle">
+                                            <ng-autocomplete #titleSearch [data]="categories" [searchKeyword]="categoryKeyword" placeholder="Search by category"
+                                            (selected)='onSelectedCategorySearch($event)'
+                                                (inputChanged)='onChangeCategorySearch($event)'
+                                                [itemTemplate]="categoryTemplate"
+                                                [notFoundTemplate]="notFoundCategoryTemplate"
+                                                (inputCleared)="onClearCategorySearch()"
+                                                (inputFocused)='onCategoryFocused($event)'>
+                                            </ng-autocomplete>
+
+                                            <ng-template #categoryTemplate let-item>
+                                                <a [innerHTML]="item.category"></a>
+                                            </ng-template>
+
+                                            <ng-template #notFoundCategoryTemplate let-notFound>
+                                                <div [innerHTML]="notFound"></div>
+                                            </ng-template>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <div [ngClass]="[gridViewService.getGridViewType()]">
-                        <div *ngFor="let image of imagesToShow">
+                    <div [ngClass]="[gridViewService.getGridViewType()]" 
+                    infiniteScroll
+                    [infiniteScrollDistance]="2"
+                    [infiniteScrollUpDistance]="1.5"
+                    [infiniteScrollThrottle]="50"   
+                    (scrolled)="onScrollDown()"
+                    (scrolledUp)="onScrollUp()">
+                        <div *ngFor="let image of imagesInScreen">
                             <app-blog-post [image]="image"></app-blog-post>
                         </div>
                     </div>

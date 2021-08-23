@@ -1,13 +1,13 @@
-<section class="u-align-center u-clearfix u-section-1" id="sec-3e62">
+<section class="u-align-center u-clearfix u-section-1" [class.u-grey-75]="nightModeService.isNightModeEnabled" [class.u-white-75]="!nightModeService.isNightModeEnabled">
   <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
     <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
       <div class="u-gutter-0 u-layout">
         <div class="u-layout-row">
           <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
             <div class="u-container-layout u-container-layout-1">
-              <h6 class="u-text u-text-grey-50 u-text-1">join our library program</h6>
-              <h2 class="u-text u-text-grey-70 u-text-2">Create Library</h2>
-              <p class="u-text u-text-grey-50 u-text-3">Create your own library<br>Library name and description cannot
+              <h6 class="u-text u-text-50 u-text-1">join our library program</h6>
+              <h2 class="u-text u-text-70 u-text-2">Create Library</h2>
+              <p class="u-text u-text-50 u-text-3">Create your own library<br>Library name and description cannot
                 be changed<br>View can be changed later as well
               </p>
             </div>
@@ -21,21 +21,21 @@
                     <label for="name-3b9a" class="u-form-control-hidden u-label">Name</label>
                     <input type="text" placeholder="Library Name" id="name-3b9a" formControlName="library_name"
                       class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-1"
-                      maxlength="20">
+                      maxlength="20" required minlength="4">
                   </div>
                   <div class="u-form-group u-form-message">
                     <label for="email-3b9a" class="u-form-control-hidden u-label">Description</label>
                     <textarea placeholder="Description" formControlName="description"
                       class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-2"
-                      maxlength="200"></textarea>
+                      maxlength="200" required minlength="5"></textarea>
                   </div>
                   <div class="u-form-group u-form-select u-form-group-3">
                     <label for="select-accb" class="u-form-control-hidden u-label"></label>
                     <div class="u-form-select-wrapper">
-                      <select id="select-accb" formControlName="default_template"
+                      <select id="select-accb" formControlName="default_template" required
                         class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-input-3">
-                        <option value="Item 1">Table View</option>
-                        <option value="Item 2">List View</option>
+                        <option value="Item 1" class="u-text-30" [class.u-grey-75]="nightModeService.isNightModeEnabled" [class.u-white-75]="!nightModeService.isNightModeEnabled" >Table View</option>
+                        <option value="Item 2" class="u-text-30" [class.u-grey-75]="nightModeService.isNightModeEnabled" [class.u-white-75]="!nightModeService.isNightModeEnabled">List View</option>
                       </select>
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret">
                         <path fill="currentColor" d="M4 8L0 4h8z"></path>
@@ -43,7 +43,7 @@
                     </div>
                   </div>
                   <div class="u-align-left u-form-group u-form-submit">
-                    <button type="submit" class="u-border-2 u-border-grey-dark-1 u-btn u-btn-rectangle u-btn-submit u-button-style u-none u-btn-1">Submit</button>
+                    <button type="submit" class="u-border-2 u-border-grey-dark-1 u-btn u-btn-rectangle u-btn-submit u-button-style u-none u-btn-1" [class.u-grey-75]="nightModeService.isNightModeEnabled" [class.u-white-75]="!nightModeService.isNightModeEnabled">{{libraryActionString}}</button>
                   </div>
                 </form>
               </div>

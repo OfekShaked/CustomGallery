@@ -5,7 +5,7 @@
             <p class="modal-desc">Click save to save your changes!</p>
             <div class="input-block">
                 <label for="title" class="input-label">Title</label>
-                <input type="text" name="title" id="title" placeholder="Image title" [(ngModel)]="editPopService.newTitle">
+                <input type="text" name="title" placeholder="Image title" [(ngModel)]="editPopService.newTitle">
             </div>
             <div class="input-block">
                 <app-location-picker (locationChanged)="handleLocationChanged($event)"></app-location-picker>

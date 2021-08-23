@@ -1,6 +1,7 @@
-import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import LocationModel from 'src/app/core/models/location-model';
 import { EditPopService } from 'src/app/core/services/edit-pop-service/edit-pop.service';
+import { ErrorHandlerService } from 'src/app/core/services/error-handling-service/error-handler.service';
 
 @Component({
   selector: 'app-location-picker',
@@ -10,35 +11,39 @@ import { EditPopService } from 'src/app/core/services/edit-pop-service/edit-pop.
 export class LocationPickerComponent implements OnInit {
 
   title = 'My first AGM project';
-  @Output() locationChanged:EventEmitter<LocationModel> = new EventEmitter();
-  lat:number;
-  lng:number;
+  @Output() locationChanged: EventEmitter<LocationModel> = new EventEmitter();
+  lat: number;
+  lng: number;
   map: google.maps.Map;
   mapClickListener;
 
-  constructor(private editPopService: EditPopService) { }
+  constructor(private editPopService: EditPopService, private errorHandlerService: ErrorHandlerService) { }
 
   ngOnInit(): void {
-    this.editPopService.customObservable.subscribe(()=>this.reloadMap());
+    this.editPopService.customObservable.subscribe(() => this.reloadMap());
   }
 
-  public reloadMap(){
-    if(this.editPopService.location!==null){  
-    this.lng=this.editPopService.location.lng;
-    this.lat=this.editPopService.location.lat;
+  public reloadMap() {
+    if (this.editPopService.location !== null) {
+      this.lng = this.editPopService.location.lng;
+      this.lat = this.editPopService.location.lat;
     }
-    else{
-     this.findMe();
+    else {
+      this.findMe();
     }
   }
 
   public mapReadyHandler(map: google.maps.Map): void {
-    this.map = map;
-    this.mapClickListener = this.map.addListener('click', (e: google.maps.MouseEvent) => {
-      this.lat=e.latLng.lat();
-      this.lng=e.latLng.lng();
-      this.locationChanged.emit({lng:this.lng,lat:this.lat});
-    });
+    try {
+      this.map = map;
+      this.mapClickListener = this.map.addListener('click', (e: google.maps.MouseEvent) => {
+        this.lat = e.latLng.lat();
+        this.lng = e.latLng.lng();
+        this.locationChanged.emit({ lng: this.lng, lat: this.lat });
+      });
+    } catch (err) {
+      this.errorHandlerService.handleError(err)
+    }
   }
   public ngOnDestroy(): void {
     if (this.mapClickListener) {
@@ -46,13 +51,17 @@ export class LocationPickerComponent implements OnInit {
     }
   }
   private findMe() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.lat=position.coords.latitude;
-        this.lng=position.coords.longitude;
-      });
-    } else {
-      alert("Geolocation is not supported by this browser.");
+    try {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          this.lat = position.coords.latitude;
+          this.lng = position.coords.longitude;
+        });
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    } catch (err) {
+      this.errorHandlerService.handleError(err)
     }
   }
 }

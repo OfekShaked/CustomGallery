@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ImagesService } from 'src/app/core/services/images-service/images.service';
+import { ErrorHandlerService } from 'src/app/core/services/error-handling-service/error-handler.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageHandlerService {
 
-  constructor(private http: HttpClient, private imagesService: ImagesService) { }
+  constructor(private http: HttpClient, private imagesService: ImagesService, private errorHandlerService: ErrorHandlerService) { }
 
   async uploadImageToServer(base64String: string): Promise<boolean> {
     try {
@@ -22,7 +23,7 @@ export class ImageHandlerService {
         }
       }
     } catch (err) {
-      console.log(err);
+      this.errorHandlerService.handleError(err)
       return false;
     }
   }

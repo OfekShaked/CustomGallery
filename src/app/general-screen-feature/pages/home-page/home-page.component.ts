@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NightModeService } from 'src/app/core/services/night-mode-service/night-mode.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public nightModeService:NightModeService) { 
+  }
 
   ngOnInit(): void {
   }

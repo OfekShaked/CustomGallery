@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NightModeService } from 'src/app/core/services/night-mode-service/night-mode.service';
 import { CameraService } from '../../services/camera-service/camera.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { CameraService } from '../../services/camera-service/camera.service';
 })
 export class CameraTakePicComponent implements OnInit {
 
-  constructor(public cameraService:CameraService) { }
+  constructor(public cameraService:CameraService,public nightModeService:NightModeService) { }
 
   ngOnInit(): void {
   }

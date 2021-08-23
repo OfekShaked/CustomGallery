@@ -65,6 +65,9 @@
 	 display: block;
 	 border-radius: 4px;
 }
+.dark{
+    background-color: gray !important;
+}
 .movie-list {
 	background-color: lightgray;
 	 position: absolute;

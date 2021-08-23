@@ -27,6 +27,8 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@swimlane/ngx-datatable": "^19.0.0",
+    "angular-ng-autocomplete": "^2.0.5",
+    "ngx-infinite-scroll": "^10.0.1",
     "ngx-webcam": "^0.3.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

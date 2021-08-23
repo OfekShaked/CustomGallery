@@ -1,4 +1,4 @@
-<section class="u-clearfix u-section-1" id="sec-11a2">
+<section class="u-clearfix u-section-1" [class.u-grey-75]="nightModeService.isNightModeEnabled" [class.u-white-75]="!nightModeService.isNightModeEnabled">
     <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-form u-form-1">
         <form *ngIf="this.isAbleToUpload" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" source="custom">
@@ -18,21 +18,21 @@
     </div>
   </section>
 
-<section class="u-clearfix u-grey-10 u-section-2" id="sec-eedb">
-    <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1"><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
+<section class="u-clearfix u-grey-10 u-section-2" [class.u-grey-75]="nightModeService.isNightModeEnabled" [class.u-white-75]="!nightModeService.isNightModeEnabled">
+    <div class="u-clearfix u-sheet u-valign-middle-xs u-sheet-1">
       <div class="u-blog u-expanded-width-md u-blog-1">
         <div class="u-repeater u-repeater-1"><!--blog_post-->
-          <div class="u-blog-post u-container-style u-image u-repeater-item u-shape-rectangle u-image-1" [ngStyle]="{'background-image':img1}" data-image-width="2000" data-image-height="1333">
+          <div class="u-blog-post u-container-style u-image u-repeater-item u-shape-rectangle" [ngStyle]="{'background-image':img1}" data-image-width="2000" data-image-height="1333">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-1"><!--blog_post_readmore-->
               <a (click)="removeImage(1)" class="u-blog-control u-btn u-btn-rectangle u-button-style u-palette-3-base u-btn-1">Delete image</a>
             </div>
           </div><!--/blog_post--><!--blog_post-->
-          <div class="u-blog-post u-container-style u-image u-repeater-item u-shape-rectangle u-image-2" [ngStyle]="{'background-image':img2}" data-image-width="2000" data-image-height="1333">
+          <div class="u-blog-post u-container-style u-image u-repeater-item u-shape-rectangle" [ngStyle]="{'background-image':img2}" data-image-width="2000" data-image-height="1333">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-2"><!--blog_post_readmore-->
               <a (click)="removeImage(2)" class="u-blog-control u-btn u-btn-rectangle u-button-style u-palette-3-base u-btn-2">Delete image</a>
             </div>
           </div><!--/blog_post--><!--blog_post-->
-          <div class="u-blog-post u-container-style u-image u-repeater-item u-shape-rectangle u-image-3" [ngStyle]="{'background-image':img3}" data-image-width="2000" data-image-height="1333">
+          <div class="u-blog-post u-container-style u-image u-repeater-item u-shape-rectangle" [ngStyle]="{'background-image':img3}" data-image-width="2000" data-image-height="1333">
             <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-3"><!--blog_post_readmore-->
               <a (click)="removeImage(3)" class="u-blog-control u-btn u-btn-rectangle u-button-style u-palette-3-base u-btn-3">Delete image</a>
             </div>

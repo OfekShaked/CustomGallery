@@ -1,6 +1,6 @@
-<section class="u-align-center u-clearfix u-grey-15 u-section-1" id="sec-102a">
+<section class="u-align-center u-clearfix u-section-1" [class.u-grey-75]="nightModeService.isNightModeEnabled" [class.u-white-75]="!nightModeService.isNightModeEnabled">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <div class="u-expanded-width u-tabs u-tabs-1">
+      <div class="u-expanded-width u-tabs u-tabs-1" [class.u-grey-75]="nightModeService.isNightModeEnabled" [class.u-white-75]="!nightModeService.isNightModeEnabled">
         <ul class="u-palette-5-dark-2 u-tab-list u-unstyled u-tab-list-1" role="tablist">
           <li class="u-tab-item" role="presentation">
             <a [ngClass]="[tabsService.getActiveClass('online'), 'u-active-white', 'u-button-style', 'u-tab-link', 'u-tab-link-1']" id="link-tab-0da5" role="tab"  [attr.aria-selected]="tabsService.isCurrentTab('online')" (click)="tabsService.toggleOnlineTab()">Online</a>

@@ -9,13 +9,10 @@
         </div>
  
         <div class="logo">
-            <h3><a href="index.html">Bootstrap 4 Template with Sidebar Menu</a></h3>
+            <h3>Main Menu</h3>
         </div>
  
         <ul class="list-unstyled menu-elements">
-            <li class="active">
-                <a class="scroll-link" href="#top-content"><i class="fas fa-home"></i> Dark / Light Mode</a>
-            </li>
             <li>
                 <a class="scroll-link" (click)="sideNavService.togglePrivatePopUpVisible()"><i class="fas fa-cog"></i> Enter / Exit private mode</a>
             </li>
@@ -23,18 +20,15 @@
                 <a class="scroll-link" routerLink="/categories"><i class="fas fa-user"></i> Edit Categories</a>
             </li>
             <li>
-                <a class="scroll-link" href="#section-5"><i class="fas fa-pencil-alt"></i> About Us</a>
-            </li>
-            <li>
-                <a class="scroll-link" href="#section-6"><i class="fas fa-envelope"></i> Exit Application</a>
+                <a class="scroll-link" routerLink="/aboutus"><i class="fas fa-pencil-alt"></i> About Us</a>
             </li>
             
         </ul>
 
  
         <div class="dark-light-buttons">
-            <a class="btn btn-primary btn-customized-4 btn-customized-dark" href="#" role="button">Dark</a>
-            <a class="btn btn-primary btn-customized-4 btn-customized-light" href="#" role="button">Light</a>
+            <a class="btn btn-primary btn-customized-4 btn-customized-dark" (click)="nightModeService.activateNightMode()" role="button">Dark</a>
+            <a class="btn btn-primary btn-customized-4 btn-customized-light" (click)="nightModeService.disableNightMode()" role="button">Light</a>
         </div>
  
     </nav>
